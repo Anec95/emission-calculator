@@ -35,7 +35,7 @@ function Dashboard() {
             ...chartData,
             dates: [moment(dates[0]).format('YYYY-MM-DD'), moment(dates[1]).format('YYYY-MM-DD')]
         })
-    }, [dates])
+    }, [dates, chartData])
 
     const handleLon = (e) => setChartData({
         ...chartData,
@@ -58,6 +58,8 @@ function Dashboard() {
         }
         renderingDataApp() 
     }, [chartData])
+
+    console.log(chartData.dates)
 
     return (
         <DashboardMain>

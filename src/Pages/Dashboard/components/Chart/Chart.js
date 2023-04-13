@@ -65,8 +65,6 @@ function ChartLine(props) {
             })
         }
     }, [windowSize])
-
-    console.log(chartSize, windowSize.innerWidth)
     
 
     return (
