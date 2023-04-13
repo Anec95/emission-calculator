@@ -1,0 +1,26 @@
+:root {
+    --shadow: #50686F;
+    --light: #D6B69B;
+    --blue-ice: #618FA8;
+    --dark-blue: #1E424D;
+    --transparent-blue: rgba(30, 66, 77, 0.5);
+    --transparent-light: rgba(214, 182, 155, 0.7);
+    --light-hover: rgba(214, 182, 155, 0.9);
+    --blue-hover: rgba(150,175,184, 0.9);
+    /* --blue-hover: #EDFCFF; */
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
