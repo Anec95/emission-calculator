@@ -2,12 +2,14 @@ import { ChartContainer } from "Pages/Dashboard/styledComponents/styledDashboard
 import { VictoryLine, VictoryChart, VictoryAxis, VictoryZoomContainer, VictoryBrushContainer } from "victory"
 import { motion } from "framer-motion"
 import moment from 'moment';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 
 
 function ChartLine(props) {
     const [windowSize, setWindowSize] = useState(getWindowSize());
+    const [zoomDomain, setZoomDomain] = useState()
+    const [selectedDomain, setSelectedDomain] = useState()
     const [chartSize, setChartSize] = useState({
         width: 1400,
         heightBigChart: 300,
@@ -18,11 +20,21 @@ function ChartLine(props) {
     const database = props.info
     // const chartDates = database.map(data => moment(data.start).format('DD-MM-YY'))
 
-    const chartData = database.map(data => {
-        return {x: moment(data.start).format('DD-MM-YY'), y: data.average}
-    })
+    const chartData = useMemo(() => {
+        return database.map(data => {
+            return {x: moment(data.start).format('DD-MM-YYYY'), y: data.average}
+        })
+    }, [database]) 
 
+    const chartX = database.map(data => new Date(data.start))
 
+    function handleZoom(domain) {
+        setSelectedDomain(domain);
+    }
+
+    function handleBrush(domain) {
+        setZoomDomain(domain);
+    }
     
 
     function getWindowSize() {
@@ -80,15 +92,25 @@ function ChartLine(props) {
             <VictoryChart
                 width={chartSize.width}
                 height={chartSize.heightBigChart}
-                scale={{x: "time"}}
+                scale={{x: "time", y: "linear"}}
+                padding={{left: 100, bottom: 50, right: 30}}
                 containerComponent={
                     <VictoryZoomContainer responsive={false}
                         zoomDimension="x"
-                        // zoomDomain={this.state.zoomDomain}
-                        // onZoomDomainChange={this.handleZoom.bind(this)}
+                        zoomDomain={zoomDomain}
+                        onZoomDomainChange={handleZoom}
                     />
                 }
             >
+            <VictoryAxis
+                dependentAxis
+                tickFormat={y => Number(y).toFixed(5)}
+                fixLabelOverlap
+            />
+            <VictoryAxis
+                tickValues={chartX}
+                fixLabelOverlap
+            />
             <VictoryLine
                 style={{
                     data: {stroke: "tomato"}
@@ -106,16 +128,16 @@ function ChartLine(props) {
                 containerComponent={
                     <VictoryBrushContainer responsive={false}
                         brushDimension="x"
-                        // brushDomain={this.state.selectedDomain}
-                        // onBrushDomainChange={this.handleBrush.bind(this)}
+                        brushDomain={selectedDomain}
+                        onBrushDomainChange={handleBrush}
                     />
                 }
             >
                 <VictoryAxis
-                    
+                    tickValues={chartX}
+                    fixLabelOverlap
                 />
                 <VictoryLine
-                    
                     style={{
                         data: {stroke: "tomato" }
                     }}

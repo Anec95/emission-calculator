@@ -15,27 +15,28 @@ function Dashboard() {
             name: "Italy",
             code: "IT"
         },
-        longitude: NaN,
-        latitude: NaN,
+        longitude: "",
+        latitude: "",
         searchType: "carbonmonoxide"
     })
+    const [dates, setDates] = useState()
     const [info, setInfo] = useState([])
-    const [dates, setDates] = useState([]);
 
     const handleCountry = (e) => setChartData({
         ...chartData,
-        longitude: NaN,
-        latitude: NaN,
+        longitude: "",
+        latitude: "",
         country: e.target.value
     })
     
-    const handleCalendar = (e) => setDates(e.value)
-    useEffect(() => {
+    const handleCalendar = (e) => {
+        setDates(e.value)
+        const currentRange = e.value
         setChartData({
             ...chartData,
-            dates: [moment(dates[0]).format('YYYY-MM-DD'), moment(dates[1]).format('YYYY-MM-DD')]
+                dates: [moment(currentRange[0]).format('YYYY-MM-DD'), moment(currentRange[1]).format('YYYY-MM-DD')]
         })
-    }, [dates, chartData])
+    }
 
     const handleLon = (e) => setChartData({
         ...chartData,
@@ -49,17 +50,24 @@ function Dashboard() {
         latitude: e.target.value
     })
 
+    console.log(chartData)
+
     const handleSearchType = (e, newAlignment) => setChartData({...chartData, searchType: newAlignment})
 
     useEffect(() => {
         async function renderingDataApp() {
-            const fetchData = await monoxide(chartData.searchType, chartData.country, chartData.dates[0], chartData.dates[1])
-            setInfo(fetchData)   
+            const fetchData = await monoxide(
+                chartData.searchType,
+                chartData.country,
+                chartData.dates[0],
+                chartData.dates[1],
+                chartData.longitude,
+                chartData.latitude
+            )
+            setInfo(fetchData)
         }
         renderingDataApp() 
     }, [chartData])
-
-    console.log(chartData.dates)
 
     return (
         <DashboardMain>
@@ -79,7 +87,8 @@ function Dashboard() {
                 searchType={chartData.searchType}
                 dates={dates}
                 selectedCountry={chartData.country}
-                // selectedCountry={selectedCountry}
+                latitude={chartData.latitude}
+                longitude={chartData.longitude}
             />
         </DashboardMain>
     )

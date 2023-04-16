@@ -11,6 +11,7 @@ function Coordinates(props) {
                 label="Longitude"
                 color="secondary"
                 onChange={props.handleLon}
+                value={props.longitude}
             />
             <CoordinatesTextField
                 // helperText="Enter a latitude"
@@ -18,6 +19,7 @@ function Coordinates(props) {
                 label="Latitude"
                 color="warning"
                 onChange={props.handleLat}
+                value={props.latitude}
             />
         </CoordinatesContainer>
     )

@@ -38,6 +38,8 @@ function Form(props) {
                 <Coordinates
                     handleLon={props.handleLon}
                     handleLat={props.handleLat}
+                    latitude={props.latitude}
+                    longitude={props.longitude}
                 />
                 <ToggleButtons
                     handleSearchType={props.handleSearchType}

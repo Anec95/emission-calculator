@@ -20,12 +20,11 @@ export async function monoxide(searchType, country, firstDate, secondDate, longi
         &end=${secondDate}
         &point=${longitude}
         &point=${latitude}
-        &limit=25
     `
-    console.log(completeURL)
     
     let {data, status} = await axios.get(latitude && longitude ? coordinatesResearch : completeURL)
 
+    
     // let {data, status} = await axios.get(completeURL)
 
     if (status === 402) {
