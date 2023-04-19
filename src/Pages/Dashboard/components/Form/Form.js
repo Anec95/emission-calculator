@@ -1,6 +1,5 @@
-import { DataContainer } from "Pages/Dashboard/styledComponents/styledDashboard"
+import { FormContainer } from "./styledComponents/styledForm";
 import { motion } from "framer-motion"
-import { FormContainer } from "Pages/Dashboard/styledComponents/styledDashboard"
 //theme
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
 //core
@@ -11,19 +10,17 @@ import RangeCalendar from "./components/RangeCalendar/RangeCalendar";
 import CountrySelection from "./components/CountrySelection/CountrySelection"
 import ToggleButtons from "./components/ToggleBtn/ToggleBtn";
 import Coordinates from "./components/Coordinates/Coordinates";
-import InfoContainer from "./components/InfoContainer/InfoContainer";
 
 
 function Form(props) {
     
     return (
-        <FormContainer>
-            <DataContainer
+        <FormContainer
                 type={"text"}
                 as={motion.div}
                 whileHover={{
                     scale: 1.1,
-                    originX: "50%",
+                    originX: "-50%",
                     backgroundColor: "var(--light-hover)"
                 }}
             >                
@@ -45,20 +42,7 @@ function Form(props) {
                     handleSearchType={props.handleSearchType}
                     searchType={props.searchType}
                 />
-            </DataContainer>
-            <DataContainer
-                as={motion.div}
-                whileHover={{
-                    scale: 1.1,
-                    originX: "50%",
-                    backgroundColor: "var(--light-hover)"
-                }}
-            >
-                <InfoContainer
-                    searchType={props.searchType}
-                />
-            </DataContainer>
-        </FormContainer>
+            </FormContainer>
     )
 }
 

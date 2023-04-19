@@ -77,6 +77,7 @@ function Dashboard() {
             />
             <ChartLine
                 info={info}
+                searchType={chartData.searchType}
             />
             <Form
                 handleCalendar={handleCalendar}
@@ -84,7 +85,6 @@ function Dashboard() {
                 handleSearchType={handleSearchType}
                 handleLon={handleLon}
                 handleLat={handleLat}
-                searchType={chartData.searchType}
                 dates={dates}
                 selectedCountry={chartData.country}
                 latitude={chartData.latitude}

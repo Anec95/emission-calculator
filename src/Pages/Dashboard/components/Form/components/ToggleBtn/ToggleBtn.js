@@ -27,10 +27,11 @@ export default function ToggleButtons(props) {
 
   return (
     <ToggleButtonGroup
-      orientation={ windowSize.innerWidth < 900 ? "vertical" : "horizontal" }
+      orientation={ windowSize.innerWidth < 1200 ? "vertical" : "horizontal" }
       value={props.searchType}
       exclusive
       onChange={props.handleSearchType}
+      aria-label="text alignment"
     >
       <ToggleButton
         value="methane"

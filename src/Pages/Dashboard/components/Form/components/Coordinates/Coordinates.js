@@ -1,5 +1,4 @@
-import { CoordinatesContainer, CoordinatesTextField } from "Pages/Dashboard/styledComponents/styledDashboard"
-
+import { CoordinatesContainer, CoordinatesTextField } from "../../styledComponents/styledForm"
 
 function Coordinates(props) {
   
@@ -12,6 +11,7 @@ function Coordinates(props) {
                 color="secondary"
                 onChange={props.handleLon}
                 value={props.longitude}
+                size="small"
             />
             <CoordinatesTextField
                 // helperText="Enter a latitude"
@@ -20,6 +20,7 @@ function Coordinates(props) {
                 color="warning"
                 onChange={props.handleLat}
                 value={props.latitude}
+                size="small"
             />
         </CoordinatesContainer>
     )

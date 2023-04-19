@@ -14,7 +14,13 @@ function RangeCalendar(props) {
             inputStyle={{
                 backgroundColor: "transparent",
                 border: "1px solid black",
-                marginBottom: "40px"
+                marginBottom: "40px",
+                height: "40px",
+                
+            }}
+            style={{
+                height: "50px",
+                width: "100%"
             }}
         />
     )

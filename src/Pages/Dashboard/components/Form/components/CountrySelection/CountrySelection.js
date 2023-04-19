@@ -13,7 +13,8 @@ function CountrySelection(props) {
             style={{
                 backgroundColor: "transparent",
                 border: "1px solid black",
-                marginBottom: "10px"
+                marginBottom: "10px",
+                width: "100%"
             }}
         />
     )
