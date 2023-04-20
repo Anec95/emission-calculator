@@ -9,12 +9,14 @@
 
 ## Built With
 
-<img src="./public/read_me_img/logo192.png" width="20" height="20">  REACT
-<img src="./public/read_me_img/primereact.svg" width="20" height="20">  PRIMEREACT
-<img src="./public/read_me_img/material-ui.svg" width="20" height="20">  M-UI
-<img src="./public/read_me_img/react-router.svg" width="20" height="20">  REACT ROUTER
-<img src="./public/read_me_img/styled-components.svg" width="20" height="20">  STYLED COMPONENTS
-<img src="./public/read_me_img/framer-motion.svg" width="20" height="20">  FRAMER MOTION
+<ul>
+  <li><img src="./public/read_me_img/logo192.png" width="20" height="20">  REACT</li>
+  <li><img src="./public/read_me_img/primereact.svg" width="20" height="20">  PRIMEREACT</li>
+  <li><img src="./public/read_me_img/material-ui.svg" width="20" height="20">  M-UI</li>
+  <li><img src="./public/read_me_img/react-router.svg" width="20" height="20">  REACT ROUTER</li>
+  <li><img src="./public/read_me_img/styled-components.svg" width="20" height="20">  STYLED COMPONENTS</li>
+  <li><img src="./public/read_me_img/framer-motion.svg" width="20" height="20">  FRAMER MOTION</li>
+</ul>
 
 
 ## Try it
